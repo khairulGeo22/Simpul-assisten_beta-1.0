@@ -6,6 +6,8 @@
   <title>SIMPUL – Kompas Hidup Harian</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
+<link rel="icon" href="/icon.png" />
+<meta name="theme-color" content="#4CAF50">
 </head>
 <body>
   <div class="container">
@@ -128,9 +130,14 @@
       <button onclick="exportData()">📁 Unduh atau Salin Semua Data</button>
       <textarea id="exportOutput" rows="10" placeholder="Hasil ekspor akan muncul di sini..." readonly></textarea>
     </section>
-
   </div>
-
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch((error) => console.error('Service Worker failed:', error));
+  }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
