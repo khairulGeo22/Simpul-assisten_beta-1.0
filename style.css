@@ -1,0 +1,281 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f9f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  background: linear-gradient(to right, #1d976c, #93f9b9);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.8em;
+}
+
+.section {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  background-color: #1d976c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #147a58;
+}
+
+ul.checklist li {
+  list-style: none;
+  padding: 8px 0;
+}
+
+ul#todoList li {
+  margin: 5px 0;
+  padding: 6px;
+  background: #eaf7ec;
+  border-left: 4px solid #1d976c;
+  border-radius: 6px;
+}
+.grid-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.grid-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9fdf9;
+  padding: 8px;
+  border-radius: 6px;
+  border-left: 4px solid #1d976c;
+  font-size: 0.95em;
+}
+#hafalanTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#hafalanTable th, #hafalanTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#hafalanTable input {
+  width: 100%;
+  padding: 6px;
+  font-size: 0.95em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#hafalanWrapper {
+  transition: all 0.3s ease-in-out;
+}
+.dashboard {
+  background-color: #e9f5e9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dashboard h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.hadith {
+  font-style: italic;
+  color: #2c3e50;
+}
+
+.quick-nav {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quick-nav button {
+  flex: 1 1 45%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.quick-nav button:hover {
+  background-color: #388E3C;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.calendar-grid .day-box {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  text-align: center;
+  font-size: 0.85em;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.day-box.refleksi {
+  background-color: #AED581; /* hijau muda */
+}
+
+.day-box.hafalan {
+  background-color: #81D4FA; /* biru muda */
+}
+
+.day-box.dual {
+  background: linear-gradient(45deg, #AED581 50%, #81D4FA 50%);
+  color: #000;
+}
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --section-bg: #f8f8f8;
+  --button-bg: #4CAF50;
+  --button-hover: #388E3C;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --section-bg: #1e1e1e;
+  --button-bg: #607d8b;
+  --button-hover: #455a64;
+}
+
+/* Terapkan variabel */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.section {
+  background-color: var(--section-bg);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+/* ✅ Mobile First Optimization */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .section {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  h1, h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 1rem;
+  }
+
+  .quick-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .grid-checklist {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 kolom biar besar & nyaman di-klik */
+    gap: 8px;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 0.7rem;
+  }
+
+  #modeToggle {
+    font-size: 0.9rem;
+  }
+}

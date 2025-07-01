@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIMPUL – Kompas Hidup Harian</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Dashboard Utama -->
+    <section class="section dashboard">
+      <h1 id="greeting">Assalamu’alaikum, Khairul!</h1>
+      <p id="dailyHadith" class="hadith"></p>
+
+      <div id="ringkasanDashboard" style="margin-top: 15px;"></div>
+
+      <div class="quick-nav">
+        <button onclick="scrollToSection('refleksi')">🧠 Refleksi</button>
+        <button onclick="scrollToSection('hafalanWrapper')">📖 Hafalan</button>
+        <button onclick="scrollToSection('daftarCatatan')">📌 Catatan</button>
+        <button onclick="scrollToSection('statistikOutput')">📊 Statistik</button>
+      </div>
+
+      <!-- Tombol Mode -->
+      <div style="text-align: right; margin-top: 15px;">
+        <button onclick="toggleMode()" id="modeToggle">🌓 Ganti Mode</button>
+      </div>
+    </section>
+
+    <!-- Ringkasan Pagi -->
+    <section class="section" id="ringkasanPagi" style="display: none;">
+      <h2>🌅 Ringkasan Pagi Ini</h2>
+      <div id="isiRingkasan"></div>
+    </section>
+
+    <!-- Aktifitas Harian -->
+    <section class="section">
+      <h2>🌅 Aktifitas Pagi & Harian</h2>
+      <div class="grid-checklist">
+        <label><input type="checkbox"> Bangun Tanpa Alarm</label>
+        <label><input type="checkbox"> Dzikir Pagi</label>
+        <label><input type="checkbox"> Bantu Istri</label>
+        <label><input type="checkbox"> Quality Time Anak</label>
+        <label><input type="checkbox"> Ngopi Sejenak</label>
+        <label><input type="checkbox"> Nulis Artikel / Ide</label>
+        <label><input type="checkbox"> Baca Buku / Qur'an</label>
+      </div>
+    </section>
+
+    <!-- Catatan Penting -->
+    <section class="section">
+      <h2>📌 Catatan Penting & Janji</h2>
+      <input type="text" id="catatanInput" placeholder="Contoh: Bertemu Pak Dodi hari Kamis jam 10...">
+      <button onclick="tambahCatatan()">Tambah Catatan</button>
+      <ul id="daftarCatatan"></ul>
+    </section>
+
+    <!-- Ibadah Harian Lengkap -->
+    <section class="section">
+      <h2>🕋 Ibadah Wajib & Sunnah</h2>
+      <div class="grid-checklist">
+        <label><input type="checkbox"> Shalat Shubuh</label>
+        <label><input type="checkbox"> Shalat Dzuhur</label>
+        <label><input type="checkbox"> Shalat Ashar</label>
+        <label><input type="checkbox"> Shalat Maghrib</label>
+        <label><input type="checkbox"> Shalat Isya</label>
+        <label><input type="checkbox"> Shalat Tahajud</label>
+        <label><input type="checkbox"> Shalat Dhuha</label>
+        <label><input type="checkbox"> Dzikir Petang</label>
+      </div>
+    </section>
+
+    <!-- Target Hafalan -->
+    <section class="section">
+      <h2>📖 Hafalan Hari Ini</h2>
+      <input type="text" id="hafalanInput" placeholder="Contoh: QS. Al-Mulk 1–5">
+    </section>
+
+    <!-- Refleksi Pribadi -->
+    <section class="section" id="refleksi">
+      <h2>🧠 Refleksi Pagi</h2>
+      <textarea id="refleksiInput" placeholder="Apa yang kau syukuri hari ini?"></textarea>
+      <button onclick="simpanRefleksi()">Simpan Refleksi</button>
+      <p id="lastRefleksi"></p>
+    </section>
+
+    <!-- Tracker Hafalan Mingguan -->
+    <section class="section">
+      <h2>📖 Tracker Hafalan Mingguan</h2>
+      <button onclick="toggleHafalan()">📂 Tampilkan / Sembunyikan Tracker</button>
+      <div id="hafalanWrapper" style="display: none; margin-top: 10px;">
+        <table id="hafalanTable">
+          <tr>
+            <th>Hari</th>
+            <th>Hafalan</th>
+          </tr>
+          <tr><td>Senin</td><td><input type="text" id="hafalan-senin"></td></tr>
+          <tr><td>Selasa</td><td><input type="text" id="hafalan-selasa"></td></tr>
+          <tr><td>Rabu</td><td><input type="text" id="hafalan-rabu"></td></tr>
+          <tr><td>Kamis</td><td><input type="text" id="hafalan-kamis"></td></tr>
+          <tr><td>Jumat</td><td><input type="text" id="hafalan-jumat"></td></tr>
+          <tr><td>Sabtu</td><td><input type="text" id="hafalan-sabtu"></td></tr>
+          <tr><td>Ahad</td><td><input type="text" id="hafalan-ahad"></td></tr>
+        </table>
+        <button onclick="simpanHafalanMingguan()">💾 Simpan Hafalan</button>
+      </div>
+    </section>
+
+    <!-- Statistik Mingguan -->
+    <section class="section">
+      <h2>📊 Statistik Mingguan</h2>
+      <button onclick="hitungStatistik()">🔍 Lihat Statistik</button>
+      <div id="statistikOutput"></div>
+    </section>
+
+    <!-- Kalender Ringkas -->
+    <section class="section">
+      <h2>📅 Kalender Hafalan & Refleksi</h2>
+      <div id="kalenderContainer" class="calendar-grid"></div>
+    </section>
+
+    <!-- Tombol Export Data -->
+    <section class="section">
+      <h2>📤 Ekspor Data Harian</h2>
+      <button onclick="exportData()">📁 Unduh atau Salin Semua Data</button>
+      <textarea id="exportOutput" rows="10" placeholder="Hasil ekspor akan muncul di sini..." readonly></textarea>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
